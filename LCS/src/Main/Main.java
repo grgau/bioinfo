@@ -16,21 +16,21 @@ public class Main {
 
     public static void main(String[] args) {
         
-        String seq1, seq2;
+        String y="ABCBDAB", x="BDCABA";
         
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
+//        
+//        System.out.println("Insira a primeira sequencia:");
+//        seq1 = scanner.nextLine();
+//        
+//        System.out.println("Insira a segunda sequencia:");
+//        seq2 = scanner.nextLine();
+//        
+//        System.out.println(seq1);
+//        System.out.println(seq2);
         
-        System.out.println("Insira a primeira sequencia:");
-        seq1 = scanner.nextLine();
+        LCS lcs = new LCS(x,y);
         
-        System.out.println("Insira a segunda sequencia:");
-        seq2 = scanner.nextLine();
-        
-        System.out.println(seq1);
-        System.out.println(seq2);
-        
-        LCS lcs = new LCS();
-        System.out.println(lcs.lcs(seq1, seq2));
         
         
 
