@@ -32,8 +32,7 @@ public class LCS {
 
     private String x;
     private String y;
-    private String resultado;
-
+    public String resultado;
     private int c[][];
     private String b[][];
 
@@ -41,45 +40,42 @@ public class LCS {
         this.x = a.toUpperCase().replace(" ", "");
         this.y = b.toUpperCase().replace(" ", "");
         this.resultado = "";
+    }
+
+    public void encontrar() {
         preencheMatriz();
-        printC();
-        printB();
-        printLCS(x.length(),y.length());
+        achaSequencia(x.length(), y.length());
     }
 
-    public void printC() {
-        for (int i = 0; i < x.length() + 1; i++) {
-            for (int j = 0; j < y.length() + 1; j++) {
-                System.out.print(c[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
+//    public void printC() {
+//        for (int i = 0; i < x.length() + 1; i++) {
+//            for (int j = 0; j < y.length() + 1; j++) {
+//                System.out.print(c[i][j] + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
+//
+//    public void printB() {
+//        for (int i = 0; i < x.length() + 1; i++) {
+//            for (int j = 0; j < y.length() + 1; j++) {
+//                System.out.print(b[i][j] + " ");
+//            }
+//            System.out.println();
+//        }
+//    }
 
-    public void printB() {
-        for (int i = 0; i < x.length() + 1; i++) {
-            for (int j = 0; j < y.length() + 1; j++) {
-                System.out.print(b[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    public void printLCS(int i, int j) {
-
-        if (i == 0 || j == 0) {
-            System.out.println();
-        } else {
-            if (b[i][j]== "CE") {
-                printLCS(i - 1, j - 1);
-                System.out.println(x.charAt(i-1));
-            } else if (b[i][j] == "C") {
-                printLCS(i - 1, j);
+    public void achaSequencia(int i, int j) {
+        if ((i != 0 && j != 0)) {
+            if (b[i][j].compareTo("CE") == 0) {
+                achaSequencia(i - 1, j - 1);
+                this.resultado = resultado + x.charAt(i - 1);
+            } else if (b[i][j].compareTo("C") == 0) {
+                achaSequencia(i - 1, j);
             } else {
-                printLCS(i, j - 1);
+                achaSequencia(i, j - 1);
             }
         }
-
     }
 
     public void preencheMatriz() {
